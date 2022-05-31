@@ -3,11 +3,11 @@
 
 /* AHB1 Base Addresses ******************************************************/
 
-#define STM32_RCC_BASE      0x40023800  /* 0x40023800-0x40023bff: Resetand Clock control RCC */
+#define STM32_RCC_BASE      0x40023800      /* 0x40023800-0x40023bff: Resetand Clock control RCC */
 
 /* AHB2 Base Addresses ******************************************************/
 
-#define STM32_GPIOC_BASE     0x48000800U /* 0x48000800-0x48000bff: GPIO
+#define STM32_GPIOC_BASE     0x48000800U    /* 0x48000800-0x48000bff: GPIO
 
 /* Register Offsets *********************************************************/
 
@@ -34,27 +34,27 @@
 
 /* GPIO port mode register */
 
-#define GPIO_MODER_INPUT        (0)/* Input */
-#define GPIO_MODER_OUTPUT       (1)/* General purpose output mode */
-#define GPIO_MODER_ALT          (2)/* Alternate mode */
-#define GPIO_MODER_ANALOG       (3)/* Analog mode */
+#define GPIO_MODER_INPUT        (0)         /* Input */
+#define GPIO_MODER_OUTPUT       (1)         /* General purpose output mode */
+#define GPIO_MODER_ALT          (2)         /* Alternate mode */
+#define GPIO_MODER_ANALOG       (3)         /* Analog mode */
 
 #define GPIO_MODER13_SHIFT      (26)
 #define GPIO_MODER13_MASK       (3 << GPIO_MODER13_SHIFT)
 
 /* GPIO port output type register */
 
-#define GPIO_OTYPER_PP          (0)/* 0=Output push-pull */
-#define GPIO_OTYPER_OD          (1)/* 1=Output open-drain */
+#define GPIO_OTYPER_PP          (0)         /* 0=Output push-pull */
+#define GPIO_OTYPER_OD          (1)         /* 1=Output open-drain */
 
 #define GPIO_OT13_SHIFT         (13)
 #define GPIO_OT13_MASK          (1 << GPIO_OT13_SHIFT)
 
 /* GPIO port pull-up/pull-down register */
 
-#define GPIO_PUPDR_NONE         (0)/* No pull-up, pull-down */
-#define GPIO_PUPDR_PULLUP       (1)/* Pull-up */
-#define GPIO_PUPDR_PULLDOWN     (2)/* Pull-down */
+#define GPIO_PUPDR_NONE         (0)         /* No pull-up, pull-down */
+#define GPIO_PUPDR_PULLUP       (1)         /* Pull-up */
+#define GPIO_PUPDR_PULLDOWN     (2)         /* Pull-down */
 
 #define GPIO_PUPDR13_SHIFT      (26)
 #define GPIO_PUPDR13_MASK       (3 << GPIO_PUPDR13_SHIFT)

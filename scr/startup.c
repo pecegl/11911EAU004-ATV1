@@ -47,7 +47,7 @@ uint32_t vectors[] __attribute__((section(".isr_vectors"))) =
     (uint32_t)systick_handler,/* 0x0000 003c */
 };
 
-void reset_handler()
+void reset_handler(void)
 {
     uint32_t i;
 

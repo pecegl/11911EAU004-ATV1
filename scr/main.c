@@ -11,13 +11,13 @@
 
 /* Register Offsets *********************************************************/
 
-#define STM32_RCC_AHB1ENR_OFFSET    0x0030  /* AHB1 Peripheral Clock enableregister */
+#define STM32_RCC_AHB1ENR_OFFSET    0x0030  /* AHB1 Peripheral Clock enable register */
 
-#define STM32_GPIO_MODER_OFFSET   0x0000/* GPIO port mode register */
-#define STM32_GPIO_OTYPER_OFFSET  0x0004/* GPIO port output type register */
-#define STM32_GPIO_PUPDR_OFFSET   0x000c/* GPIO port pull-up/pull-downregister */
+#define STM32_GPIO_MODER_OFFSET   0x0000    /* GPIO port mode register */
+#define STM32_GPIO_OTYPER_OFFSET  0x0004    /* GPIO port output type register */
+#define STM32_GPIO_PUPDR_OFFSET   0x000c    /* GPIO port pull-up/pull-downregister */
 
-#define STM32_GPIO_BSRR_OFFSET    0x0018/* GPIO port bit set/reset register */
+#define STM32_GPIO_BSRR_OFFSET    0x0018    /* GPIO port bit set/reset register */
 
 /* Register Addresses *******************************************************/
 
@@ -64,7 +64,10 @@
 #define GPIO_BSRR_SET(n)        (1 << (n))
 #define GPIO_BSRR_RST(n)        (1 << (n + 16))
 
-#define LED_DELAY 50000
+#define LED_DELAY 30000
+
+static const char fw_version[] = {'V','1','.','0'};
+static uint32_t led_status;
 
 int main(int argc,char *argv[])
 {
@@ -101,13 +104,15 @@ int main(int argc,char *argv[])
     reg |= (GPIO_PUPDR_NONE << GPIO_PUPDR13_SHIFT);
     *pGPIOC_PUPDR = reg;
 
-    while(1);
+    while(1)
     {
         *pGPIOC_BSRR = GPIO_BSRR_SET(13);
+        led_status = 0;
         for(uint32_t i =0; i < LED_DELAY; i++);
         *pGPIOC_BSRR = GPIO_BSRR_RST(13);
+        led_status = 1;
         for(uint32_t i =0; i < LED_DELAY; i++);
-    }
+    };
 
     /* Nao deveria chegar aqui */
 

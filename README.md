@@ -14,6 +14,8 @@ Posteriormente, foi desenvolvido o programa para piscar o LED no arquivo main.c.
 
 #### main.c
 
+Neste arquivo foi desenvolvido o programa para piscar o LED. Para isso, foi feita a atribuição de um pino ao LED, definição o endereço do registrador RCCC_AHB1ENR, configuração do CLOCK e habilitação da porta.  
+
 #### Makefile
 
 O make é utilizado para automatizar o processo de compilação utilizando instruções contidas em arquivos chamados Makefile. Neste arquivo, teremos as instruções de compilação dos outros arquivos do projeto para que sejam gerados os arquivos de formato .o, .elf e .bin. As instruções ccontêm 5 tipos de elementos: regras explicitas, regras implicitas, definições de variáveis, diretivas e comentários. A regra informa ao make quando um traget está destualizado e como fazer para atualizá-lo. Seu formato é: <br>targets: prerequisites. <br>recipe.
@@ -23,4 +25,7 @@ O make é utilizado para automatizar o processo de compilação utilizando instr
 O startup. é o arquivo de incialização onde declaramos e inicializamos o Stack e a Tabela de Vetores de Interrupção além de fazer o código do Reset handler e de exception handler.
 
 #### stm32f411-rom.ld
+
+Este arquivo tem como objetivo combinar os arquivos objetos gerados pela compilação em um único arquivo executável em um processo chamado de linkedição.
+O principal objetivo do linker script é descrever como as seções dos arquivos objeto de entrada devem ser mapeados e controlar o layout da memória no arquivo de saída.
 
